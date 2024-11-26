@@ -8,6 +8,10 @@ defineProps<{
     alt: string;
   };
 }>();
+
+const getExcerpt = (text: string, length: number): string => {
+  return text.length > length ? text.substring(0, length) + "..." : text;
+};
 </script>
 
 <template>
@@ -21,7 +25,7 @@ defineProps<{
             <p class="c-item__price">{{ price }} €</p>
           </div>
           <p>
-            {{ description }}
+            {{ getExcerpt(description, 150) }}
           </p>
         </div>
         <div class="c-item__actions">
