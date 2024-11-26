@@ -20,6 +20,9 @@ jobs:
         with:
           node-version: 20
 
+      - name: Go to directory
+        run: cd projetVue
+
       # Installer les dépendances NPM
       - name: Install dependencies
         run: npm install
