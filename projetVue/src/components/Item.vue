@@ -14,16 +14,20 @@ defineProps<{
   <div class="c-item">
     <div class="c-item__container">
       <img class="c-item__image -blue" :src="image.url" :alt="image.alt" />
-      <div class="c-item__content">
-        <div class="c-item__intitle">
-          <p class="c-item__title">{{ name }}</p>
-          <p class="c-item__price">{{ price }} €</p>
+      <div class="c-item__details">
+        <div class="c-item__content">
+          <div class="c-item__intitle">
+            <p class="c-item__title">{{ name }}</p>
+            <p class="c-item__price">{{ price }} €</p>
+          </div>
+          <p>
+            {{ description }}
+          </p>
         </div>
-        <p>
-          {{ description }}
-        </p>
+        <div class="c-item__actions">
+          <button class="button c-item__button">Ajouter au panier</button>
+        </div>
       </div>
-      <button class="button c-item__button">Ajouter au panier</button>
     </div>
   </div>
 </template>
@@ -38,7 +42,7 @@ defineProps<{
     border: 1px solid $gray100;
     background-color: rgb(255, 255, 255);
 
-    @container (min-width: 650px) {
+    @container (min-width: 450px) {
       display: flex;
     }
   }
@@ -66,7 +70,7 @@ defineProps<{
   }
 
   &__content {
-    padding: rem(5px);
+    padding: rem(15px);
   }
 
   &__title {
@@ -103,6 +107,12 @@ defineProps<{
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+  }
+  &__details {
+    padding: 5px;
+  }
+  &__actions {
+    padding: 5px;
   }
 }
 </style>
