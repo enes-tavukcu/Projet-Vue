@@ -138,6 +138,8 @@ const api = {
     border: none;
     box-shadow: none;
     background: none;
+    // backdrop-filter: blur(10px);
+    // box-shadow: 0 0 10px #ccc;
 
     .form {
       border: none;
