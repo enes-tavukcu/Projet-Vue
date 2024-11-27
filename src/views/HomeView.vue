@@ -1,21 +1,24 @@
 <script setup lang="ts">
-
+import Home from "@/components/Login.vue";
+import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
-  <main>
-    <h1 class="h1">Projet Vue</h1>
-    
-  </main>
+  <body>
+    <Home variant="login" />
+  </body>
 </template>
 
 <style lang="scss">
-  .h1 {
-    color: #d40000;
-    text-align: center;
+body {
+  background-position: center;
+  background-repeat: no-repeat;
+}
 
-    &:hover {
-      color: #1d6bc5;
-    }
-  }
+img {
+  border-style: none;
+  width: 100vw;
+  object-fit: cover;
+  height: 100vh;
+}
 </style>

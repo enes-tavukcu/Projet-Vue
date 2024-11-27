@@ -12,6 +12,11 @@ function handleSubmit() {
   api.post("/login", { email: email.value, password: password.value });
 }
 
+defineProps<{
+  title: string;
+  variant?: "primary" | "borderless";
+}>();
+
 const showPassword = ref(false);
 
 const api = {
@@ -35,9 +40,15 @@ const api = {
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form
+    :class="{
+      form: true,
+      '-borderless': variant === 'borderless',
+    }"
+    @submit="handleSubmit"
+  >
     <div class="form">
-      <p class="form__title">Connexion</p>
+      <p class="form__title">{{ title }}</p>
       <div class="form__mail">
         <label for="email">Email</label>
         <input type="email" name="email" v-model="email" />
@@ -62,7 +73,7 @@ const api = {
       </div>
 
       <div class="form__submit">
-        <MyButton type="submit" class="button -large">Connexion</MyButton>
+        <MyButton type="submit" class="button -outline">{{ title }}</MyButton>
       </div>
     </div>
   </form>
@@ -75,9 +86,9 @@ const api = {
   gap: 10px;
   width: 300px;
   border: 1px solid #ccc;
-  padding: 15px;
   font-family: $fontTitleFamily;
   box-shadow: 0 0 10px #ccc;
+  background: $gray100;
 
   &__mail,
   &__password {
@@ -86,13 +97,15 @@ const api = {
     gap: 5px;
     label {
       font-size: 12px;
-      font-weight: 600;
+      color: $black;
+      font-family: $fontTitleFamily;
     }
     input {
       padding: 10px;
       border: 1px solid #ccc;
       box-shadow: 0 0 10px #ccc;
       width: 90%;
+      border-radius: 20px;
     }
   }
   &__submit {
@@ -106,17 +119,46 @@ const api = {
   }
   &__title {
     font-size: 20px;
-    font-weight: 600;
     text-align: center;
+    color: $black;
   }
   &__password__toggle {
     font-size: 12px;
     font-weight: 600;
-    cursor: pointer;
+    // cursor: pointer;
     border: none;
     background: none;
     position: absolute;
     right: 3%;
+  }
+
+  //BORDERLESS
+
+  &.-borderless {
+    border: none;
+    box-shadow: none;
+    background: none;
+
+    .form {
+      border: none;
+      box-shadow: none;
+      background: none;
+
+      &__title {
+        color: $white;
+      }
+      &__mail,
+      &__password {
+        input {
+          border: none;
+          box-shadow: none;
+          border-radius: 20px;
+        }
+        label {
+          color: $white;
+        }
+      }
+    }
   }
 }
 </style>
