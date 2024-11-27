@@ -6,13 +6,13 @@ const props = defineProps<{
   variant?: "login" | "signup";
 }>();
 
-function getImage() {
-  if (props.variant === "login") {
-    return "@/img/home2.jpg";
-  } else if (props.variant === "signup") {
-    return "@/img/home1.jpg";
-  }
-}
+// function getImage() {
+//   if (props.variant === "login") {
+//     return "@/img/home2.jpg";
+//   } else if (props.variant === "signup") {
+//     return "@/img/home1.jpg";
+//   }
+// }
 
 function getTextForm() {
   if (props.variant === "login") {
@@ -22,13 +22,13 @@ function getTextForm() {
   }
 }
 
-function getText() {
-  if (props.variant === "login") {
-    return "Bienvenue sur la page Connexion";
-  } else if (props.variant === "signup") {
-    return "Bienvenue sur la page Inscription";
-  }
-}
+// function getText() {
+//   if (props.variant === "login") {
+//     return "Bienvenue sur la page Connexion";
+//   } else if (props.variant === "signup") {
+//     return "Bienvenue sur la page Inscription";
+//   }
+// }
 
 function getRedirectText() {
   if (props.variant === "login") {
@@ -57,15 +57,6 @@ function getRedirectLink() {
   >
     <div class="home__content">
       <div class="home__form">
-        <!-- <h1
-          :class="{
-            title: true,
-            '-login': variant === 'login',
-            '-signup': variant === 'signup',
-          }"
-        >
-          {{ getText() }}
-        </h1> -->
         <MyForm class="button -borderless" :title="getTextForm()" />
         <p
           :class="{
@@ -94,9 +85,14 @@ function getRedirectLink() {
     background-size: cover;
     min-height: 100vh;
     color: $white;
-    // h1 {
-    //   color: $primaryColorMobile;
-    // }
+
+    @include small-down() {
+      background-position: right;
+    }
+
+    @include medium-up() {
+      background-position: right;
+    }
   }
 
   &.-signup {
@@ -105,6 +101,16 @@ function getRedirectLink() {
     min-height: 100vh;
     color: $white;
 
+    @include small-down() {
+      background-position: bottom;
+    }
+
+    @include small-up() {
+    }
+
+    @include medium-up() {
+      background-position: center;
+    }
     .redirect {
       color: $white;
     }
@@ -129,7 +135,7 @@ function getRedirectLink() {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding-top: 50px;
   }
 
   img {
@@ -148,7 +154,7 @@ function getRedirectLink() {
 }
 
 .redirect {
-  color: $gray800;
+  color: $white;
   //   background-color: $white100;
   padding: 2vh 4vh;
   border-radius: rem(8px);

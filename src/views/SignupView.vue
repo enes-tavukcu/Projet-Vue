@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import Home from "@/components/Login.vue";
 import { RouterLink, RouterView } from "vue-router";
+import Header from "@/components/Header.vue";
 </script>
 
 <template>
+  <Header />
   <body>
     <Home variant="signup" />
   </body>
