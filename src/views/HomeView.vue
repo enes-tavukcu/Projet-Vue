@@ -1,8 +1,11 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import Home from "@/components/Login.vue";
+import { RouterLink, RouterView } from "vue-router";
+</script>
 
 <template>
   <body>
-    <img src="@/img/home2.jpg" alt="Logo" />
+    <Home variant="login" />
   </body>
 </template>
 
