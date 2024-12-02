@@ -20,7 +20,7 @@ defineProps<{
 const showPassword = ref(false);
 
 const api = {
-  post(url: string, data: any) {
+  post(url: string, data) {
     // Simulate API request
     return new Promise((resolve, reject) => {
       setTimeout(() => {
@@ -51,16 +51,16 @@ const api = {
       <p class="form__title">{{ title }}</p>
       <div class="form__mail">
         <label for="email">Email</label>
-        <input type="email" name="email" v-model="email" />
+        <input v-model="email" type="email" name="email" >
       </div>
       <div class="form__password">
         <label for="password">Password</label>
         <div class="form__password__input">
           <input
+            v-model="password"
             :type="showPassword ? 'text' : 'password'"
             name="password"
-            v-model="password"
-          />
+          >
           <div
             type="button"
             class="form__password__toggle"

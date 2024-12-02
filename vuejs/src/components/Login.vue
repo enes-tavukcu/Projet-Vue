@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import MyForm from "@/components/Form.vue";
-import { RouterLink, RouterView } from "vue-router";
+// import { RouterLink, RouterView } from "vue-router";
 
 const props = defineProps<{
   variant?: "login" | "signup";
