@@ -17,7 +17,7 @@ const getExcerpt = (text: string, length: number): string => {
 <template>
   <div class="c-item">
     <div class="c-item__container">
-      <img class="c-item__image -blue" :src="image.url" :alt="image.alt" />
+      <img class="c-item__image -blue" :src="image.url" :alt="image.alt" >
       <div class="c-item__details">
         <div class="c-item__content">
           <div class="c-item__intitle">
