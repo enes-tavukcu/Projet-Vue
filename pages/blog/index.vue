@@ -47,8 +47,7 @@ body {
 
 img {
   border-style: none;
-  width: 50vw;
-  object-fit: cover;
-  height: 100vh;
+  width: 300px;
+  height: 200px;
 }
 </style>
