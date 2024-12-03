@@ -23,6 +23,7 @@ const urlFor = (source: SanityImageSource) =>
 <template>
   <div class="l-blog">
     <h1>Blog</h1>
+    <h2>Blog</h2>
     <div>
       <ul>
         <li v-for="(personnage, index) in personnages" :key="index">
@@ -46,8 +47,7 @@ body {
 
 img {
   border-style: none;
-  width: 50vw;
-  object-fit: cover;
-  height: 100vh;
+  width: 300px;
+  height: 200px;
 }
 </style>

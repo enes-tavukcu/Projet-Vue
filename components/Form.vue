@@ -3,7 +3,7 @@ const email = ref("");
 const password = ref("");
 
 function handleSubmit() {
-  alert(email.value, password.value);
+  alert(email.value);
   api.post("/login", { email: email.value, password: password.value });
 }
 
@@ -15,7 +15,7 @@ defineProps<{
 const showPassword = ref(false);
 
 const api = {
-  post(url: string, data) {
+  post(url: string, data: { [key: string]: string }) {
     // Simulate API request
     return new Promise((resolve, reject) => {
       setTimeout(() => {
