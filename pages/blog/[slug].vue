@@ -11,6 +11,10 @@ const route = useRoute();
 const { data: personnage } = await useSanityQuery<SanityDocument>(POST_QUERY, {
   slug: route.params.slug,
 });
+
+if (!personnage.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
 </script>
 
 <template>
