@@ -9,7 +9,7 @@ const POSTS_QUERY = groq`*[
   && defined(slug.current)
 ]|order(publishedAt desc)[0...12]{_id, image, title, slug, publishedAt}`;
 
-const { data: personnage } = await useSanityQuery<SanityDocument[]>(
+const { data: personnages } = await useSanityQuery<SanityDocument[]>(
   POSTS_QUERY
 );
 
@@ -25,7 +25,7 @@ const urlFor = (source: SanityImageSource) =>
     <h1>Blog</h1>
     <div>
       <ul>
-        <li v-for="(personnage, index) in personnage" :key="index">
+        <li v-for="(personnage, index) in personnages" :key="index">
           <Button>
             <NuxtLink :to="`/blog/${personnage.slug.current}`">{{
               personnage.title
