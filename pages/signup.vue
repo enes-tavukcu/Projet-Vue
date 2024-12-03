@@ -1,11 +1,10 @@
 <script setup lang="ts">
-import Home from "../../../components/Login.vue";
-// import { RouterLink, RouterView } from "vue-router";
+definePageMeta({ layout: "minimal" });
 </script>
 
 <template>
   <body>
-    <Home variant="login" />
+    <login variant="signup" />
   </body>
 </template>
 

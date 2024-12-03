@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import MyForm from "@/components/Form.vue";
 // import { RouterLink, RouterView } from "vue-router";
 
 const props = defineProps<{
@@ -57,7 +56,7 @@ function getRedirectLink() {
   >
     <div class="home__content">
       <div class="home__form">
-        <MyForm class="button -borderless" :title="getTextForm()" />
+        <Form class="button -borderless" :title="getTextForm()" />
         <p
           :class="{
             redirect: true,
@@ -66,9 +65,7 @@ function getRedirectLink() {
           }"
         >
           {{ getRedirectText() }}
-          <router-link :to="getRedirectLink()" class="home__link"
-            >ici</router-link
-          >.
+          <NuxtLink :to="getRedirectLink()" class="home__link">ici</NuxtLink>.
         </p>
       </div>
     </div>
@@ -81,7 +78,7 @@ function getRedirectLink() {
   flex-direction: column;
 
   &.-login {
-    background: url("@/img/home2.jpg");
+    background: url("@/assets/img/home2.jpg");
     background-size: cover;
     min-height: 100vh;
     color: $white;
@@ -96,7 +93,7 @@ function getRedirectLink() {
   }
 
   &.-signup {
-    background: url("@/img/home1.jpg");
+    background: url("@/assets/img/home1.jpg");
     background-size: cover;
     min-height: 100vh;
     color: $white;

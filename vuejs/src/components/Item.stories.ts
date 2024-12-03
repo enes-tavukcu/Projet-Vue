@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3';
 
-import Item from './Item.vue';
+import Item from '../../../components/Item.vue';
 
 const meta: Meta<typeof Item> = {
   title: 'Elements/Item',
