@@ -18,6 +18,8 @@ function getTextForm() {
     return "Connexion";
   } else if (props.variant === "signup") {
     return "Inscription";
+  } else {
+    return "Connexion";
   }
 }
 
