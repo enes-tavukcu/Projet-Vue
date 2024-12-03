@@ -1,9 +1,4 @@
 <script setup lang="ts">
-import MyButton from "@/components/Button.vue";
-import { ref } from "vue";
-import Eye from "./icons/Eye.vue";
-import EyeClose from "./icons/EyeClose.vue";
-
 const email = ref("");
 const password = ref("");
 
@@ -51,7 +46,7 @@ const api = {
       <p class="form__title">{{ title }}</p>
       <div class="form__mail">
         <label for="email">Email</label>
-        <input v-model="email" type="email" name="email" >
+        <input v-model="email" type="email" name="email" />
       </div>
       <div class="form__password">
         <label for="password">Password</label>
@@ -60,11 +55,11 @@ const api = {
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
             name="password"
-          >
+          />
           <div
             type="button"
             class="form__password__toggle"
-            @click="(showPassword = !showPassword)"
+            @click="showPassword = !showPassword"
           >
             <Eye v-if="!showPassword" />
             <EyeClose v-else />
@@ -73,7 +68,7 @@ const api = {
       </div>
 
       <div class="form__submit">
-        <MyButton type="submit" class="button -outline">{{ title }}</MyButton>
+        <Button type="submit" class="button -outline">{{ title }}</Button>
       </div>
     </div>
   </form>
