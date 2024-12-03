@@ -1,9 +1,9 @@
 <script setup lang="ts">
-definePageMeta({ layout: "minimal" });
 import type { SanityDocument } from "@sanity/client";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
+definePageMeta({ layout: "minimal" });
 const POSTS_QUERY = groq`*[
   _type == "personnage"
   && defined(slug.current)
@@ -32,7 +32,11 @@ const urlFor = (source: SanityImageSource) =>
               personnage.title
             }}</NuxtLink>
           </Button>
-          <img :src="urlFor(personnage.image)?.url()" alt="" />
+          <img
+            v-if="personnage.image"
+            :src="urlFor(personnage.image)?.url()"
+            alt=""
+          />
         </li>
       </ul>
     </div>

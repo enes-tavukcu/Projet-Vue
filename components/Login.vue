@@ -37,12 +37,13 @@ function getRedirectText() {
   }
 }
 
-function getRedirectLink() {
+function getRedirectLink(): string {
   if (props.variant === "login") {
     return "/signup";
   } else if (props.variant === "signup") {
     return "/";
   }
+  return "/"; // Valeur par défaut si variant est undefined
 }
 </script>
 
