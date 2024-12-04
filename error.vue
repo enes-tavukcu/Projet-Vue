@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import type { NuxtError } from "#app";
 
-const props = defineProps<{
-  error: NuxtError;
-}>();
+// const props = defineProps({
+//   error: Object as () => NuxtError,
+// });
 
-// Exemple d'utilisation explicite de props dans le script
-console.log("Erreur reçue :", props.error);
+const handleError = () => clearError({ redirect: "/" });
 </script>
 
 <template>
