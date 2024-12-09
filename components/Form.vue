@@ -46,7 +46,7 @@ const api = {
       <p class="form__title">{{ title }}</p>
       <div class="form__mail">
         <label for="email">Email</label>
-        <input v-model="email" type="email" name="email" />
+        <input v-model="email" type="email" name="email" >
       </div>
       <div class="form__password">
         <label for="password">Password</label>
@@ -55,7 +55,7 @@ const api = {
             v-model="password"
             :type="showPassword ? 'text' : 'password'"
             name="password"
-          />
+          >
           <div
             type="button"
             class="form__password__toggle"
