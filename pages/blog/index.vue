@@ -133,7 +133,7 @@ useSeoMeta({
           v-if="personnage.image"
           :src="urlFor(personnage.image)?.url()"
           alt="Image du personnage"
-        />
+        >
       </li>
     </ul>
 

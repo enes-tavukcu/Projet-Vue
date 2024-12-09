@@ -21,7 +21,7 @@ const closeMobileMenu = () => {
           src="@/assets/logo.svg"
           alt="logo du site"
           class="header__logo__img"
-        />
+        >
       </NuxtLink>
 
       <button class="header__menu-button md:hidden" @click="toggleMobileMenu">
