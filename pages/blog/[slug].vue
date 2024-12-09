@@ -2,8 +2,7 @@
 // import { SanityContent } from "#build/components";
 
 import type { SanityDocument } from "@sanity/client";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
-import imageUrlBuilder from "@sanity/image-url";
+
 // import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 const POST_QUERY = groq`*[_type == "personnage" && slug.current == $slug][0] {
@@ -44,7 +43,7 @@ useSeoMeta({
 
     <SanityContent v-bind="{ blocks: personnage.body }" />
 
-    <img v-if="personnage.image" :src="urlFor(personnage.image)" />
+    <img v-if="personnage.image" :src="urlFor(personnage.image)?.url()">
 
     <!-- <SanityContent v-bind="{ blocks: personnage.body }" /> -->
     <!-- <SanityContent v-bind="{ blocks: personnage.categories }" /> -->
