@@ -11,10 +11,9 @@ const handleError = () => clearError({ redirect: "/" });
 <template>
   <div v-if="error" class="p-error">
     <h1>Ma page d'erreur {{ error.statusCode }} personnalisé</h1>
-    <br />
+    {{ NuxtError }}
     Message d'erreur : {{ error.statusMessage }}
     <Button @click="handleError">Retourner à l'accueil</Button>
-    <br />
   </div>
 </template>
 

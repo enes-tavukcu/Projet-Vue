@@ -1,8 +1,6 @@
 <script setup lang="ts">
 // Imports nécessaires
 import type { SanityDocument } from "@sanity/client";
-import imageUrlBuilder from "@sanity/image-url";
-import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 
 // Configuration de la page
 definePageMeta({ layout: "minimal" });
@@ -49,11 +47,7 @@ const { data: personnages } = await useSanityQuery<SanityDocument[]>(
 );
 
 // === Gestion des Images ===
-const { projectId, dataset } = useSanity().client.config();
-const urlFor = (source: SanityImageSource) =>
-  projectId && dataset
-    ? imageUrlBuilder({ projectId, dataset }).image(source)
-    : null;
+const { urlFor } = useSanityImage();
 
 // === Méthodes ===
 /** Gestion du clic sur une catégorie */
@@ -67,6 +61,20 @@ function onCategoriesClick(categorie: SanityDocument) {
 function onPageClick(index: number) {
   page.value = index;
 }
+
+if (!personnages.value) {
+  throw createError({ statusCode: 404, statusMessage: "Page Not Found" });
+}
+
+useSeoMeta({
+  title: `${personnages.value.title} | Le foot`,
+  description:
+    "Le foot est une communauté francophone et d'aventuriers passionnés par le football.",
+  ogDescription:
+    " Le foot est une communauté francophone et d'aventuriers passionnés par le football.",
+  ogTitle: "Le foot",
+  ogImage: "/SiteKubilay.jpg",
+});
 </script>
 
 <template>
