@@ -14,6 +14,7 @@ const { urlFor } = useSanityImage();
   <!-- Hero Banner -->
   
   <section class="hero">
+    dsdsd 
     <img v-if="images" :src="urlFor(images)?.url()" class="banner-img" alt="Image du personnage">    
     <div class="hero__content">
       <h1 class="hero__title">{{ title }}</h1>

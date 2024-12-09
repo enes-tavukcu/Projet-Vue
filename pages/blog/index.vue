@@ -67,7 +67,7 @@ if (!personnages.value) {
 }
 
 useSeoMeta({
-  title: `${personnages.value.title} | Le foot`,
+  title: `Blog | Le foot`,
   description:
     "Le foot est une communauté francophone et d'aventuriers passionnés par le football.",
   ogDescription:
