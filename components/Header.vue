@@ -17,7 +17,11 @@ const closeMobileMenu = () => {
   <header class="header">
     <div class="header__container">
       <NuxtLink to="/" class="header__logo">
-        <img src="../img/run-man-png.webp" alt="logo du site" />
+        <img
+          src="@/assets/logo.svg"
+          alt="logo du site"
+          class="header__logo__img"
+        />
       </NuxtLink>
 
       <button class="header__menu-button md:hidden" @click="toggleMobileMenu">
@@ -93,6 +97,7 @@ const closeMobileMenu = () => {
   background: rgba($white, 0.2);
   backdrop-filter: blur(10px);
   padding: rem(10px) rem(20px);
+  font-family: $fontTitleFamily;
 
   &__logo {
     width: 30px;
@@ -108,8 +113,12 @@ const closeMobileMenu = () => {
   gap: 20%;
 }
 
-.header__logo img {
-  height: rem(40px);
+.header__logo {
+  width: 40px;
+
+  &__img {
+    height: 40px;
+  }
 }
 
 .header__menu-button {
@@ -130,6 +139,8 @@ const closeMobileMenu = () => {
 
   @media (max-width: 768px) {
     display: block;
+    position: relative;
+    right: -30%;
   }
 }
 
