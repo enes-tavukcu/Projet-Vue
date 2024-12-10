@@ -9,6 +9,14 @@ export default defineNuxtConfig({
     dataset: "production",
   },
 
+  runtimeConfig: {
+    superSecretToken: '',
+    public: {
+      apiTrackingBaseUrl: ''
+    }
+      },
+    
+
 css: ['@/assets/scss/main.scss'],
 
 components: [
