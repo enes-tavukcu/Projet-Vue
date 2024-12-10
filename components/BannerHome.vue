@@ -14,7 +14,7 @@ const { urlFor } = useSanityImage();
   <!-- Hero Banner -->
   
   <section class="hero">
-    dsdsd 
+     
     <img v-if="images" :src="urlFor(images)?.url()" class="banner-img" alt="Image du personnage">    
     <div class="hero__content">
       <h1 class="hero__title">{{ title }}</h1>
@@ -50,7 +50,15 @@ const { urlFor } = useSanityImage();
     width: 66.6666%;
     padding: 30px;
     border-radius: 0 125px 0px 0px;
+
+    @include small-down() {
+    left: 0;
+    position: absolute;
+    bottom: 4px;
+    background: linear-gradient(to right, #007bff, #0056b3);
+    padding: 30px;
 }
+  }
 
   
 

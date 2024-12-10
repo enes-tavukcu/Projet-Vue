@@ -59,7 +59,7 @@ function getRedirectLink(): string {
   >
     <div class="home__content">
       <div class="home__form">
-        <Form class="button -borderless" :title="getTextForm()" />
+        <Form2 :action="'register'" class="button -borderless" :title="getTextForm()" />
         <p
           :class="{
             redirect: true,
