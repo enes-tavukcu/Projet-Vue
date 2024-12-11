@@ -3,7 +3,6 @@
 import type { SanityDocument } from "@sanity/client";
 
 // Configuration de la page
-definePageMeta({ layout: "minimal" });
 
 // === Données Réactives ===
 const filter = ref(""); // Filtre actif (catégorie sélectionnée)

@@ -2,7 +2,7 @@
 
 <template>
   <div class="l-default">
-    <Header />
+    <Header2 />
     <slot />
   </div>
 </template>
