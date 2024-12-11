@@ -44,7 +44,7 @@ const closeMobileMenu = () => {
       <nav class="header__menu">
         <NuxtLink to="/" class="header__menu-item">Accueil</NuxtLink>
         <NuxtLink to="/blog" class="header__menu-item">Blog</NuxtLink>
-        <NuxtLink to="/habitude" class="header__menu-item"
+        <NuxtLink to="/app/dashboard" class="header__menu-item"
           >Mes Habitudes</NuxtLink
         >
         <NuxtLink to="/connexion" class="header__menu-item">
@@ -97,7 +97,6 @@ const closeMobileMenu = () => {
   background: rgba($white, 0.2);
   backdrop-filter: blur(10px);
   padding: rem(10px) rem(20px);
-  font-family: $fontTitleFamily;
 
   &__logo {
     width: 30px;

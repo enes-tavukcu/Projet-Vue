@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
+
+
 // Colors
 $primaryColor: #6b4eff;
 $primaryDarkColor: #252237;
@@ -18,7 +21,8 @@ $colors: (
 );
 
 // Fonts
-$fontTextFamily: "Inter", sans-serif;
+// $fontTextFamily: "Inter", sans-serif;
+$fontTextFamily: "Josefin Sans", sans-serif;
 $fontTitleFamily: "Montserrat", sans-serif;
   
 

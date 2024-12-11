@@ -2,7 +2,7 @@
 // import { RouterLink, RouterView } from "vue-router";
 
 const props = defineProps<{
-  variant?: "login" | "signup";
+  variant: "login" | "register";
 }>();
 
 // function getImage() {
@@ -16,7 +16,7 @@ const props = defineProps<{
 function getTextForm() {
   if (props.variant === "login") {
     return "Connexion";
-  } else if (props.variant === "signup") {
+  } else if (props.variant === "register") {
     return "Inscription";
   } else {
     return "Connexion";
@@ -34,16 +34,16 @@ function getTextForm() {
 function getRedirectText() {
   if (props.variant === "login") {
     return "Vous n'avez pas de compte ? inscrivez-vous ";
-  } else if (props.variant === "signup") {
+  } else if (props.variant === "register") {
     return "Vous avez déjà un compte ? connectez-vous ";
   }
 }
 
 function getRedirectLink(): string {
   if (props.variant === "login") {
-    return "/signup";
-  } else if (props.variant === "signup") {
-    return "/";
+    return "/register";
+  } else if (props.variant === "register") {
+    return "/connexion";
   }
   return "/"; // Valeur par défaut si variant est undefined
 }
@@ -54,17 +54,17 @@ function getRedirectLink(): string {
     :class="{
       home: true,
       '-login': variant === 'login',
-      '-signup': variant === 'signup',
+      '-signup': variant === 'register',
     }"
   >
     <div class="home__content">
       <div class="home__form">
-        <Form2 :action="'register'" class="button -borderless" :title="getTextForm()" />
+        <Form2 :action="variant" class="button -borderless" :title="getTextForm()" />
         <p
           :class="{
             redirect: true,
             '-login': variant === 'login',
-            '-signup': variant === 'signup',
+            '-signup': variant === 'register',
           }"
         >
           {{ getRedirectText() }}
@@ -120,7 +120,6 @@ function getRedirectLink(): string {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    font-family: $fontTitleFamily;
 
     @include large-up() {
       flex-direction: row;
