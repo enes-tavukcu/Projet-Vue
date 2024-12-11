@@ -120,7 +120,6 @@ function getRedirectLink(): string {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    font-family: $fontTitleFamily;
 
     @include large-up() {
       flex-direction: row;

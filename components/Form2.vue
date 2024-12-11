@@ -102,7 +102,6 @@ async function onSubmit (event: Event) {
   gap: 10px;
   width: 300px;
   border: 1px solid #ccc;
-  font-family: $fontTitleFamily;
   box-shadow: 0 0 10px #ccc;
   background: $gray100;
 
@@ -114,7 +113,6 @@ async function onSubmit (event: Event) {
     label {
       font-size: 12px;
       color: $black;
-      font-family: $fontTitleFamily;
     }
     input {
       padding: 10px;

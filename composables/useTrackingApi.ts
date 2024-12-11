@@ -1,18 +1,21 @@
-export default async function (endpoint: string, {method, body}: { method: 'GET'|'POST'|'PUT'|'DELETE', body?:{ [key: string]: string } 
+export default async function (endpoint: string, {method, body, auth = true }: {
+  method: 'GET' | 'POST' | 'DELETE' | 'PUT',
+  body?: { [key: string]: string }
+  auth?: boolean
 }) {
 
   try {
 
-      const response = await fetch(`http://localhost:4000${endpoint}`, {
+      const config = useRuntimeConfig().public
+
+      const response = await fetch(`${config.apiTrackingBaseUrl}${endpoint}`, {
           method,
           headers: {
               'content-type': 'application/json',
-              Authorization: `Bearer ${useCookie('api_tracking_jwt').value}`
+              ...auth && { Authorization: `Bearer ${useCookie('api_tracking_jwt').value}` }
           },
-
-
           ...body && {
-            body: JSON.stringify(body)  // Convert body to JSON string for POST, PUT requests
+              body: JSON.stringify(body)
           }
       })
 
@@ -20,10 +23,7 @@ export default async function (endpoint: string, {method, body}: { method: 'GET'
 
       return await response.json()
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   } catch (err) {
-    return null
+      return err
   }
-
-  // return ...
 }

@@ -5,7 +5,7 @@ definePageMeta({ layout: "minimal" });
 
 <template>
   <body>
-    <login variant="signup" />
+    <login variant="register" />
   </body>
     
 </template>

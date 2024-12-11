@@ -43,6 +43,5 @@ useSeoMeta({
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
-  font-family: $fontTitleFamily;
 }
 </style>

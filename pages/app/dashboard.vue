@@ -1,6 +1,17 @@
 <script lang="ts" setup>
 import { ref } from 'vue';
 
+const habitToEdit = ref<Habit|null>(null);
+
+interface Habit {
+  id: number; // L'identifiant unique de l'habitude
+  title: string; // Le titre de l'habitude
+  description: string; // Une description de l'habitude
+  createdAt?: string; // Date de création (facultative)
+  updatedAt?: string; // Date de mise à jour (facultative)
+}
+
+
 // Charger les habitudes à partir de l'API
 const { data, refresh } = await useAsyncData('dashboard', async () => {
 const response = await fetch('http://localhost:4000/dashboard', {
@@ -19,8 +30,20 @@ function onHabitCreated () {
     refresh()
 }
 
+function onHabitModified () {
+  refresh()
+}
+
 const message = ref('');
 
+const toggleEditHabit = (habit: Habit) => {
+  // Si l'utilisateur clique à nouveau sur le même bouton, fermer le formulaire
+  if (habitToEdit.value?.id === habit.id) {
+    habitToEdit.value = null;
+  } else {
+    habitToEdit.value = habit; // Ouvrir le formulaire pour l'habitude cliquée
+  }
+};
 
 // Fonction pour supprimer une habitude
 const deleteHabit = async (habitId: number) => {
@@ -47,9 +70,7 @@ const deleteHabit = async (habitId: number) => {
       <h1>Mon dashboard</h1>
   
         <!-- Afficher les données brutes -->
-    <div>
-      <pre>{{ data }}</pre>
-    </div>
+        <!-- <pre>{{ data }}</pre> -->
 
     <!-- Habitudes globales -->
     <h2>Habitudes Globales</h2>
@@ -64,16 +85,20 @@ const deleteHabit = async (habitId: number) => {
       <ul>
         <li v-for="(habit, index) in data.personalHabits" :key="index">
           {{ habit.title }} : {{ habit.description }}
-          <button style="margin-left: 10px; background-color: red; color: white;" @click="deleteHabit(habit.id)">
+          <Button style="margin-left: 10px; background-color: red; color: white;" @click="deleteHabit(habit.id)">
             Supprimer
-          </button>
+          </Button>
+          <Button style="margin-left: 10px;" @click="toggleEditHabit(habit)">Modifier</Button>
         </li>
       </ul>
   
       
-
+      <div class="formulaire">
       <AddHabitForm @habit:created="onHabitCreated"/>
-  
+
+      <ModifHabitForm v-if="habitToEdit" :habit="habitToEdit" @habit:modified="onHabitModified" />
+
+    </div>
       <!-- Message de statut -->
       <p>{{ message }}</p>
     </div>
@@ -81,6 +106,19 @@ const deleteHabit = async (habitId: number) => {
   
 
 <style lang="scss">
+
+.formulaire {
+  display: flex
+;
+    align-items: flex-start;
+    justify-content: space-evenly;
+  
+    @include small-down() {
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+  }
 /* Style basique */
 form {
   display: flex;

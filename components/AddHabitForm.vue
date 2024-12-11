@@ -4,13 +4,6 @@ const description = ref('')
 
 const emit = defineEmits(['habit:created'])
 
-// const response = await fetch('http://localhost:4000/dashboard', {
-//   method: 'GET',
-//   headers: {
-//     Authorization: `Bearer ${useCookie('api_tracking_jwt').value}`,
-//   },
-// });
-
 
 
 async function onSubmit() {
@@ -27,48 +20,11 @@ async function onSubmit() {
         console.log(err)
     }
 }
-// const data = await response.json();
 
-// Variables pour gérer le formulaire
-// const newHabitTitle = ref('');
-// const newHabitDescription = ref('');
-// const message = ref('');
-
-// Fonction pour ajouter une nouvelle habitude
-// const addHabit = async () => {
-//   if (!newHabitTitle.value || !newHabitDescription.value) {
-//     message.value = 'Veuillez remplir tous les champs.';
-//     return;
-//   }
-
-//   const habitResponse = await fetch('http://localhost:4000/habits', {
-//     method: 'POST',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       Authorization: `Bearer ${useCookie('api_tracking_jwt').value}`,
-//     },
-//     body: JSON.stringify({
-//       title: newHabitTitle.value,
-//       description: newHabitDescription.value,
-//     }),
-//   });
-
-//   if (habitResponse.ok) {
-//     const newHabit = await habitResponse.json();
-//     // Ajouter la nouvelle habitude dans la liste personnelle
-//     data.personalHabits.push(newHabit);
-//     message.value = 'Nouvelle habitude ajoutée avec succès !';
-//     // Réinitialiser le formulaire
-//     newHabitTitle.value = '';
-//     emit('habit:created')
-//     newHabitDescription.value = '';
-//   } else {
-//     message.value = "Erreur lors de l'ajout de l'habitude.";
-//   }
-// };
 </script>
 
 <template>
+  <div class="container">
     <h2>Ajouter une nouvelle habitude</h2>
       <form @submit.prevent="onSubmit">
         <label for="title">Titre de l'habitude :</label>
@@ -79,34 +35,115 @@ async function onSubmit() {
   
         <button type="submit">Ajouter</button>
       </form>
+  </div>
 </template>
 
 <style lang="scss">
-/* Style basique */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 form {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
+  width: 100%;
+  max-width: 400px;
+  margin: 20px auto; /* Centrer le formulaire */
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fdfdfd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+  label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+  }
+
+  input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+
+    &:focus {
+      border-color: #007bff;
+      outline: none;
+      box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+  }
+
+  button {
+    padding: 12px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+
+    &:active {
+      transform: scale(0.98); /* Réduction légère à l'appui */
+    }
+  }
+
+  p {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #28a745; /* Vert pour le succès */
+    &.error {
+      color: #dc3545; /* Rouge pour les erreurs */
+    }
+  }
 }
 
-button {
-  padding: 5px 10px;
-  border-radius: 4px;
-  cursor: pointer;
+/* Titre */
+h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
 }
 
-button:hover {
-  opacity: 0.8;
+/* Responsiveness */
+@media (max-width: 768px) {
+  form {
+    padding: 15px;
+    width: 90%;
+  }
+
+  input,
+  button {
+    font-size: 14px;
+  }
+
+  h2 {
+    font-size: 20px;
+  }
 }
 
-button[style*="red"] {
-  background-color: red;
-  color: white;
-  border: none;
-}
+@media (max-width: 480px) {
+  form {
+    padding: 10px;
+  }
 
-button[style*="red"]:hover {
-  background-color: darkred;
-}
+  h2 {
+    font-size: 18px;
+  }
 
+  button {
+    padding: 10px;
+    font-size: 14px;
+  }
+}
 </style>
