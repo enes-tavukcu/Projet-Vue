@@ -2,7 +2,7 @@
 defineProps<{
   title: string;
   text: string;
-  images: string;
+  images: { asset: { _ref: string }};
   stats: { value: string; text: string }[];
 }>();
 
@@ -33,6 +33,7 @@ const { urlFor } = useSanityImage();
 .banner-img {
     width: 100%;
     object-fit: cover;
+    height: 100vh;
 }
 .hero {
     width: 100%;

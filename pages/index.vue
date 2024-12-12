@@ -2,9 +2,6 @@
 // Imports nécessaires
 import type { SanityDocument } from "@sanity/client";
 
-// Configuration de la page
-definePageMeta({ layout: "default" });
-
 // === Récupération des données de la page d'accueil ===
 const { data: homepage } = await useSanityQuery<SanityDocument>(
   groq`*[_type == "homepage"][0]`

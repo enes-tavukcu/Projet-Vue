@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{
-  image: string;
+  image: { asset: { _ref: string }};
   titre: string;
   text: string;
 }>();
@@ -39,7 +39,4 @@ const { urlFor } = useSanityImage();
     font-weight: 600;
   }
   }
-
- 
-
 </style>

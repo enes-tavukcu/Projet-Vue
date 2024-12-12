@@ -5,13 +5,7 @@ const props = defineProps<{
   variant: "login" | "register";
 }>();
 
-// function getImage() {
-//   if (props.variant === "login") {
-//     return "@/img/home2.jpg";
-//   } else if (props.variant === "signup") {
-//     return "@/img/home1.jpg";
-//   }
-// }
+
 
 function getTextForm() {
   if (props.variant === "login") {
@@ -23,13 +17,7 @@ function getTextForm() {
   }
 }
 
-// function getText() {
-//   if (props.variant === "login") {
-//     return "Bienvenue sur la page Connexion";
-//   } else if (props.variant === "signup") {
-//     return "Bienvenue sur la page Inscription";
-//   }
-// }
+
 
 function getRedirectText() {
   if (props.variant === "login") {

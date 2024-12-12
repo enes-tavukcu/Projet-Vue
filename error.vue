@@ -12,7 +12,7 @@ const handleError = () => clearError({ redirect: "/" });
   <div v-if="error" class="p-error">
     <h1>Ma page d'erreur {{ error.statusCode }} personnalisé</h1>
     Message d'erreur : {{ error.statusMessage }}
-    <Button @click="handleError">Retourner à l'accueil</Button>
+    <Button @click="handleError" >Retourner sur la page d'accueil</Button>
   </div>
 </template>
 
