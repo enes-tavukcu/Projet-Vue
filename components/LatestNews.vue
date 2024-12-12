@@ -2,7 +2,7 @@
 defineProps<{
   title: string;
   text: string;
-  actualites: { image: string; titre: string; text: string }[];
+  actualites: { image: { asset: { _ref: string } }; titre: string; text: string }[];
 }>();
 
 
