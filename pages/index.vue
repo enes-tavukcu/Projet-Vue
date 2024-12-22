@@ -28,6 +28,9 @@ useSeoMeta({
 
     <LatestNews v-bind="homepage?.actualite" />
 
+
+    <HomePricing v-bind="homepage?.pricing" />
+
     <!-- Dernière actualité -->
   </div>
 </template>
