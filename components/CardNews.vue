@@ -3,6 +3,7 @@ defineProps<{
   image: { asset: { _ref: string }};
   titre: string;
   text: string;
+  prix?: string;
 }>();
 
 // === Gestion des Images ===
@@ -17,7 +18,11 @@ const { urlFor } = useSanityImage();
       {{ titre }}
     </p>
   </div>
-  <p class="latest-news__item-text">{{ text }}</p>
+  <div class="latest-news2">
+    <p class="latest-news2__item-text">{{ text }}</p>
+    <p v-if="prix" class="latest-news2__item-price">{{ prix }}€ /mois</p>
+  </div>
+
 </template>
 
 <style lang="scss">
@@ -26,12 +31,7 @@ const { urlFor } = useSanityImage();
     align-items: center;
     gap: 10px;
 
-  &__item-text {
-    font-size: 10px;
-    color: #666;
-    font-family: $fontTitleFamily;
-    text-align: left;
-  }
+  
   &__item-title {
     font-size: 14px;
     font-family: $fontTitleFamily;
@@ -39,4 +39,24 @@ const { urlFor } = useSanityImage();
     font-weight: 600;
   }
   }
+
+.latest-news2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    &__item-text {
+    font-size: 10px;
+    color: #666;
+    font-family: $fontTitleFamily;
+    text-align: left;
+  }
+
+  &__item-price {
+    font-size: 30px;
+    color: #666;
+    font-family: $fontTitleFamily;
+    text-align: left;
+  }
+}
 </style>

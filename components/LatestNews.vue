@@ -12,7 +12,7 @@ defineProps<{
   <section class="latest-news">
     <div class="latest-news__content">
       <h1 class="latest-news__title">{{ title }}</h1>
-      <p class="news__text">{{ text }}</p>
+      <p class="latest-news__text">{{ text }}</p>
       <ul v-if="actualites?.length" class="latest-news__list">
         <li
           v-for="(actualite, index) in actualites"
@@ -43,7 +43,7 @@ defineProps<{
       margin-bottom: 20px;
     }
 
-    .news__text {
+    &__news__text {
       font-size: 1.1rem;
       color: #666;
       margin-bottom: 30px;
@@ -56,6 +56,13 @@ defineProps<{
     gap: 20px;
     list-style: none;
     padding: 0;
+    margin: 10px;
+
+    @include medium-up () {
+      margin: 20px;  
+    }
+
+    
   }
 
   
@@ -76,6 +83,8 @@ defineProps<{
       linear-gradient(90deg, #1e3a8a, #60a5fa); /* Bleu foncé à bleu ciel */
     background-origin: border-box;
     background-clip: padding-box, border-box;
+
+    
 
     &:hover {
       transform: translateY(-5px); /* Légère élévation */
