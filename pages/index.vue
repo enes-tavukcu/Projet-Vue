@@ -33,7 +33,7 @@ useSeoMeta({
 
     <HomeTemoignage v-bind="homepage?.temoignage" />
 
-    <!-- <HomePartenaires v-bind="homepage?.partenaires" /> -->
+    <HomePartenaires v-bind="homepage?.partenaires" />
 
     <!-- Dernière actualité -->
   </div>

@@ -36,11 +36,20 @@ const { urlFor } = useSanityImage();
 .item-partenaires {
   display: flex;
   
+  @include small-down() {
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+  }
 
   &__left {
     position: relative;
     width: 50%;
     height: auto;
+
+    @include small-down() {
+        width: 100%;
+    }
 
     &-image {
     //   width: 100%;
@@ -50,6 +59,8 @@ const { urlFor } = useSanityImage();
 
       @include small-down() {
         height: 160px;
+        width: 100%;
+        object-fit: cover;
       }
     }
 
