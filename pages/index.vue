@@ -31,6 +31,8 @@ useSeoMeta({
 
     <HomePricing v-bind="homepage?.pricing" />
 
+    <HomeTemoignage v-bind="homepage?.temoignage" />
+
     <!-- Dernière actualité -->
   </div>
 </template>
