@@ -2,7 +2,7 @@
 defineProps<{
   title: string;
   text: string;
-  abonnements: { image: { asset: { _ref: string } }; titre: string; text: string; prix: number }[];
+  temoignages: { image: { asset: { _ref: string } }; nom: string; text: string; note: number }[];
 }>();
 
 
@@ -14,13 +14,13 @@ defineProps<{
       <h1 class="latest-news__title">{{ title }}</h1>
       <p class="latest-news__text">{{ text }}</p>
 
-      <ul v-if="abonnements?.length" class="latest-news__list">
+      <ul v-if="temoignages?.length" class="latest-news__list">
         <li
-          v-for="(abonnement, index) in abonnements"
+          v-for="(temoignage, index) in temoignages"
           :key="index"
           class="latest-news__item"
         >
-          <CardAbonnement v-bind="abonnement" />
+          <CardTemoignage v-bind="temoignage" />
         </li>
       </ul>
     </div>
