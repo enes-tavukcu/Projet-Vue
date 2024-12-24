@@ -20,7 +20,7 @@ defineProps<{
           :key="index"
           class="latest-news__item"
         >
-          <CardNews v-bind="abonnement" />
+          <CardAbonnement v-bind="abonnement" />
         </li>
       </ul>
     </div>
