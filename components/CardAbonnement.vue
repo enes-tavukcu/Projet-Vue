@@ -55,10 +55,13 @@ const { urlFor } = useSanityImage();
   }
 
   &__item-price {
-    font-size: 30px;
-    color: #000000;
-    font-family: $fontTitleFamily;
-    text-align: left;
-  }
+  font-size: 30px;
+  font-family: $fontTitleFamily;
+  text-align: left;
+  background: linear-gradient(90deg, #FFD700, #FFC700, #FFAA00, #FFD700); // Dégradé doré
+  -webkit-background-clip: text; // Applique le dégradé au texte uniquement
+  -webkit-text-fill-color: transparent; // Remplissage transparent pour montrer le dégradé
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.3); // Ajout d'ombre subtile
+}
 }
 </style>
