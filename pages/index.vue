@@ -35,6 +35,7 @@ useSeoMeta({
 
     <HomePartenaires v-bind="homepage?.partenaires" />
 
+
     <!-- Dernière actualité -->
   </div>
 </template>
